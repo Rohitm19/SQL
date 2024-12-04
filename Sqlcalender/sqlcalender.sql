@@ -46,4 +46,12 @@ candy_id	candy_name	calories	candy_category
 6	Marshmallow	900	Sweets
 7	Sugar Cookie	140	Baked Goods
 
+Solution:
+SELECT 
+    candy_name, 
+    candy_category, 
+    calories, 
+    RANK() OVER (PARTITION BY candy_category ORDER BY calories DESC) AS rank_in_category
+FROM 
+    candy_nutrition;
 
